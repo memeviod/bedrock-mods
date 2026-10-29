@@ -108,3 +108,13 @@ http.createServer(async (req, res) => {
     else res.end();
   }
 }).listen(PORT, () => console.log('Listo en el puerto ' + PORT));
+if (url.pathname === '/icon-192.png' || url.pathname === '/icon-512.png') {
+  const file = path.join(__dirname, path.basename(url.pathname));
+
+  if (!fs.existsSync(file)) {
+    return json(res, 404, { error: 'Icono no encontrado en el servidor' });
+  }
+
+  res.writeHead(200, { 'Content-Type': 'image/png' });
+  return fs.createReadStream(file).pipe(res);
+}
