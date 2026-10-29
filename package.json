@@ -1,0 +1,7 @@
+{
+  "name": "bedrock-mods",
+  "version": "1.0.0",
+  "description": "Buscador y descargador de addons de Minecraft Bedrock (CurseForge)",
+  "scripts": { "start": "node server.js" },
+  "engines": { "node": ">=18" }
+}
